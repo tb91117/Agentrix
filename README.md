@@ -19,7 +19,8 @@ The repository tree looks like this:
 
 ```
 Multi-Agent-AI-System/
-├── .env                # Environment variables for API keys
+├── .env.example        # Safe environment variable template
+├── .gitignore          # Excludes local credentials and generated files
 ├── README.md           # Project documentation
 ├── requirements.txt    # Python dependencies
 ├── multi_agent.ipynb   # Jupyter notebook for the multi-agent AI system
@@ -38,6 +39,9 @@ cd Multi-Agent-AI-System
 
 # Install all required Python dependencies from requirements.txt
 pip install -r requirements.txt
+
+# Create your local environment file, then add your own credentials
+cp .env.example .env
 ```
 
 ---
@@ -66,6 +70,11 @@ pip install -r requirements.txt
 ---
 
 ## Setting up the Environment
+
+Copy `.env.example` to `.env` and fill in only the providers you plan to use.
+The local `.env` file is ignored by Git and must never be committed. If a real
+credential has ever been pushed to a repository, revoke it at the provider and
+replace it; removing the file in a later commit is not sufficient.
 
 So, LangChain, LangGraph all these modules form an entire architecture. If I import all the libraries at once, it will definitely create confusion.
 
